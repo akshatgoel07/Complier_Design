@@ -352,8 +352,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 3
+#define YY_END_OF_BUFFER 4
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -363,25 +363,25 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[10] =
     {   0,
-        0,    0,    6,    3,    2,    1,    2,    4,    0
+        0,    0,    4,    3,    2,    1,    1,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    3,    3,    3,
+        3,    3,    3,    3,    3,    3,    3,    1,    1,    1,
+        1,    1,    1,    1,    2,    2,    2,    2,    2,    2,
+        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
+        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
+        1,    1,    1,    1,    2,    1,    2,    2,    2,    2,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
+        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
+        2,    2,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -398,30 +398,32 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[5] =
+static const YY_CHAR yy_meta[4] =
     {   0,
-        1,    2,    2,    2
+        1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[11] =
+static const flex_int16_t yy_base[12] =
     {   0,
-        0,    0,    6,    0,    7,    7,    7,    0,    7,    4
+        0,    5,    6,    8,    8,    0,    0,    3,    8,    3,
+        0
     } ;
 
-static const flex_int16_t yy_def[11] =
+static const flex_int16_t yy_def[12] =
     {   0,
-        9,    1,    9,   10,    9,    9,    9,   10,    0,    9
+       10,   11,    9,    9,    9,    9,    6,    6,    0,    9,
+        9
     } ;
 
 static const flex_int16_t yy_nxt[12] =
     {   0,
-        4,    5,    6,    7,    8,    9,    3,    9,    9,    9,
+        5,    7,    8,    4,    8,    9,    6,    3,    9,    9,
         9
     } ;
 
 static const flex_int16_t yy_chk[12] =
     {   0,
-        1,    1,    1,    1,   10,    3,    9,    9,    9,    9,
+       11,    6,    6,   10,    8,    3,    2,    9,    9,    9,
         9
     } ;
 
@@ -439,12 +441,11 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "spaces.l"
-#line 2 "spaces.l"
+#line 1 "identify-identifier.l"
+#line 2 "identify-identifier.l"
 #include<stdio.h>
-int lc=0,sc=0,tc=0,ch=0,wc=0;	 // GLOBAL VARIABLES
-#line 446 "lex.yy.c"
 #line 447 "lex.yy.c"
+#line 448 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -624,6 +625,9 @@ extern int yylex (void);
 #endif
 
 #define YY_RULE_SETUP \
+	if ( yyleng > 0 ) \
+		YY_CURRENT_BUFFER_LVALUE->yy_at_bol = \
+				(yytext[yyleng - 1] == '\n'); \
 	YY_USER_ACTION
 
 /** The main scanner function which does all the work.
@@ -661,9 +665,9 @@ YY_DECL
 		}
 
 	{
-#line 6 "spaces.l"
+#line 5 "identify-identifier.l"
 
-#line 666 "lex.yy.c"
+#line 670 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -678,6 +682,7 @@ YY_DECL
 		yy_bp = yy_cp;
 
 		yy_current_state = (yy_start);
+		yy_current_state += YY_AT_BOL();
 yy_match:
 		do
 			{
@@ -696,7 +701,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 7 );
+		while ( yy_base[yy_current_state] != 8 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -721,33 +726,22 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 7 "spaces.l"
-{ lc++; ch+=yyleng;}
+#line 6 "identify-identifier.l"
+printf("Valid identifer"); 
 	YY_BREAK
 case 2:
+/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 8 "spaces.l"
-{ sc++; ch+=yyleng;}
+#line 7 "identify-identifier.l"
+printf("Invalid Identifier");
 	YY_BREAK
 case 3:
-/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 9 "spaces.l"
-{ tc++; ch+=yyleng;}
-	YY_BREAK
-case 4:
-YY_RULE_SETUP
-#line 10 "spaces.l"
-{ wc++; ch+=yyleng;}
-	YY_BREAK
-case 5:
-YY_RULE_SETUP
-#line 11 "spaces.l"
+#line 9 "identify-identifier.l"
 ECHO;
 	YY_BREAK
-#line 750 "lex.yy.c"
+#line 744 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1032,6 +1026,7 @@ static int yy_get_next_buffer (void)
 	char *yy_cp;
     
 	yy_current_state = (yy_start);
+	yy_current_state += YY_AT_BOL();
 
 	for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
 		{
@@ -1191,6 +1186,8 @@ static int yy_get_next_buffer (void)
 	c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
 	*(yy_c_buf_p) = '\0';	/* preserve yytext */
 	(yy_hold_char) = *++(yy_c_buf_p);
+
+	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = (c == '\n');
 
 	return c;
 }
@@ -1752,18 +1749,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 11 "spaces.l"
-
+#line 9 "identify-identifier.l"
 
 int yywrap(){ return 1; }
-
 int main(){
-	printf("Enter the Sentence : ");
-	yylex();
-	printf("Number of lines : %d\n",lc);
-	printf("Number of spaces : %d\n",sc);
-	printf("Number of tabs, words, charc : %d , %d , %d\n",tc,wc,ch);
-	
-	return 0;
+    yylex();
+    return 0;
 }
+
+
 
