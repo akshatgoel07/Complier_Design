@@ -8,7 +8,6 @@ int lc=0,sc=0,tc=0,ch=0,wc=0,spc=0;	 // GLOBAL VARIABLES
 [ \t] { sc++; ch+=yyleng;}
 [^\t] { tc++; ch+=yyleng;}
 [^\t\n ]+ { wc++; ch+=yyleng;}
-. { spc++; }
 %%
 
 int yywrap(){ return 1; }
