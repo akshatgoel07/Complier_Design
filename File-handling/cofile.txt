@@ -1,0 +1,4 @@
+'Number of lines : 1
+Number of spaces : 11
+Number of tabs : 0
+Number of words : 12

@@ -735,12 +735,12 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 5 "token.l"
-printf("Operators");
+printf("Operator");
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 6 "token.l"
-printf("Separators");
+printf("Separator");
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
@@ -750,7 +750,7 @@ printf("Keyword");
 case 4:
 YY_RULE_SETUP
 #line 8 "token.l"
-printf("Identifiers");
+printf("Identifier1");
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
